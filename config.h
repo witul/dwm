@@ -17,7 +17,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 /* False means using the scroll wheel on a window will not change focus */
 
-static const Bool focusonwheelscroll = False;
+//static const Bool focusonwheelscroll = True;
 
 
 
