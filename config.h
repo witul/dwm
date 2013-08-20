@@ -82,8 +82,11 @@ static Key keys[] = {
     //  { MODKEY|CtrlMask,                       XK_b,      togglebar,      {0} },
     { MODKEY,                      XK_l,      focusstack,     {.i = +1 } },
     { MODKEY,                      XK_h,      focusstack,     {.i = -1 } },
-    { MODKEY|ShiftMask,                       XK_i,      incnmaster,     {.i = +1 } },
-    { MODKEY|ShiftMask,                       XK_d,      incnmaster,     {.i = -1 } },
+    //zmiana ukladu - alt+shift+=
+    { MODKEY|ShiftMask,                       0x3d,      incnmaster,     {.i = +1 } },
+    //zmiana ukladu - alt+shift+-
+    { MODKEY|ShiftMask,                       0x2d,      incnmaster,     {.i = -1 } },
+    //zmiana rozmiaru - alt+[]
     { MODKEY,                       0x5b,      setmfact,       {.f = -0.05} },
     { MODKEY,                       0x5d,      setmfact,       {.f = +0.05} },
     { MODKEY,                       XK_Return, zoom,           {0} },
