@@ -28,7 +28,7 @@ static const char *tags[] = { "q", "w", "e", "r", "t", "y", "u", "i", "o" };
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     //  { "Firefox",  NULL,       NULL,       1 << 5,       False,       -1 },
-    { "Skype",  NULL,       NULL,       1<<7,       False,       -1 },
+    { "_skype",  NULL,       NULL,       1<<7,       False,       -1 },
     { NULL     , NULL,   "cmus",        1<<8,           False,     -1},
     { "jetbrains-phpstorm", NULL, NULL, 1<<1, False, -1},
     { "irssi", NULL, NULL, 1<<6, False,-1 },
