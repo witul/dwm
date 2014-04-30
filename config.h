@@ -54,6 +54,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define MODKEYWIN Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -92,15 +93,15 @@ static Key keys[] = {
     { MODKEY,                       XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-    { MODKEY|ShiftMask,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEYWIN|ShiftMask,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+    { MODKEYWIN,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+    { MODKEYWIN,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 
-    { MODKEY,                       XK_b,      setlayout,      {.v = &layouts[3]} },
-    { MODKEY|ShiftMask,             XK_b,      setlayout,      {.v = &layouts[4]} },
+    { MODKEYWIN,                       XK_b,      setlayout,      {.v = &layouts[3]} },
+    { MODKEYWIN|ShiftMask,             XK_b,      setlayout,      {.v = &layouts[4]} },
 
-    { MODKEY,                       XK_space,  setlayout,      {0} },
-    { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+    { MODKEYWIN,                       XK_space,  setlayout,      {0} },
+    { MODKEYWIN|ShiftMask,             XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     //  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -116,15 +117,15 @@ static Key keys[] = {
     { MODKEY|ShiftMask, XK_d, spawn, {.v = vifm } },
 
     TAGKEYS(                        XK_q,                      0)
-        TAGKEYS(                        XK_w,                      1)
-        TAGKEYS(                        XK_e,                      2)
-        TAGKEYS(                        XK_r,                      3)
-        TAGKEYS(                        XK_t,                      4)
-        TAGKEYS(                        XK_y,                      5)
-        TAGKEYS(                        XK_u,                      6)
-        TAGKEYS(                        XK_i,                      7)
-        TAGKEYS(                        XK_o,                      8)
-        { MODKEY|ShiftMask,0xff08,      quit,           {0} },
+    TAGKEYS(                        XK_w,                      1)
+    TAGKEYS(                        XK_e,                      2)
+    TAGKEYS(                        XK_r,                      3)
+    TAGKEYS(                        XK_t,                      4)
+    TAGKEYS(                        XK_y,                      5)
+    TAGKEYS(                        XK_u,                      6)
+    TAGKEYS(                        XK_i,                      7)
+    TAGKEYS(                        XK_o,                      8)
+    { MODKEY|ShiftMask,0xff08,      quit,           {0} },
 };
 
 /* button definitions */
