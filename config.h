@@ -1,7 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 
 #include<X11/XF86keysym.h>
-
+#define NUMCOLORS         4
+static const char colors[NUMCOLORS][ColLast][8] = {
+  // border   foreground background
+  { "#000033", "#dddddd", "#000033" },  // normal
+  { "#000088", "#ffffff", "#000088" },  // selected
+  { "#ff0000", "#000000", "#ffff00" },  // urgent/warning  (black on yellow)
+  { "#ff0000", "#ffffff", "#ff0000" },  // error (white on red)
+  // add more here
+};
 //static const char font[]            = "Sans 9";
 static const char font[]            = "-*-terminus-*-*-*-*-*-*-*-*-*-*-*-*";
 //static const char font[]            = "-*-terminus-medium-r-normal-*-8-*-*-*-*-*-*-*";
@@ -66,6 +74,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *passmenucmd[] = { "passmenu", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
 static const char *ss[]={"/home/witul/scripts/screenshot.sh",NULL};
@@ -79,6 +88,7 @@ static const char *vifm[] = { "urxvt", "-e","vifm","NULL" };
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     //  { MODKEY|CtrlMask,                       XK_b,      togglebar,      {0} },
     { MODKEY,                      XK_l,      focusstack,     {.i = +1 } },
