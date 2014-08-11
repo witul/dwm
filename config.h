@@ -35,12 +35,10 @@ static const char *tags[] = { "q", "w", "e", "r", "t", "y", "u", "i", "o" };
 //static const char *tags[] = { "web", "term", "dev", "chat", "video", "misc" };
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
-    //  { "Firefox",  NULL,       NULL,       1 << 5,       False,       -1 },
-    { "_skype",  NULL,       NULL,       1<<7,       False,       -1 },
-    { NULL     , NULL,   "cmus",        1<<8,           False,     -1},
-    { "jetbrains-phpstorm", NULL, NULL, 1<<1, False, -1},
-    { "irssi", NULL, NULL, 1<<6, False,-1 },
-    { "urxvt", NULL, "PyRadio: Starting",1<<6,False,-1 },
+     { "Firefox",  NULL,       NULL,       1 << 0,       False,       -1 },
+    { "Skype",  NULL,       NULL,       1<<7,       False,       -1 },
+    { NULL,  NULL,       "mutt",       1<<6,       False,       -1 },
+    { NULL,  NULL,       "vifm",       1<<2,       False,       -1 },
 };
 
 
@@ -77,12 +75,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 static const char *passmenucmd[] = { "passmenu", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
-static const char *ss[]={"/home/witul/scripts/screenshot.sh",NULL};
+static const char *ss[]={"/home/witul/scripts/screenshot",NULL};
 static const char *volu[] = { "amixer", "set", "Master", "5%+", NULL };
 static const char *vold[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *mute[] = { "amixer", "set", "Master", "toggle", NULL };
 static const char *playpause[] = { "ncmpcpp", "toggle", NULL };
-static const char *vifm[] = { "urxvt", "-e","vifm","NULL" };
+static const char *vifm[] = { "urxvt", "-e","vifm",NULL };
+static const char *mutt[] = { "urxvt", "-e","mutt",NULL };
 
 
 static Key keys[] = {
@@ -124,7 +123,6 @@ static Key keys[] = {
     { 0, 0x1008ff11,spawn, {.v = vold } },
     { 0, 0x1008ff12,spawn, {.v = mute } },
     { 0, 0x1008ff14,spawn, {.v = playpause} },
-    { MODKEY|ShiftMask, XK_d, spawn, {.v = vifm } },
 
     TAGKEYS(                        XK_q,                      0)
     TAGKEYS(                        XK_w,                      1)
@@ -136,6 +134,8 @@ static Key keys[] = {
     TAGKEYS(                        XK_i,                      7)
     TAGKEYS(                        XK_o,                      8)
     { MODKEY|ShiftMask,0xff08,      quit,           {0} },
+    { MODKEY|ShiftMask, XK_d, spawn, {.v = vifm } },
+    { MODKEY|ShiftMask, XK_m, spawn, {.v = mutt } },
 };
 
 /* button definitions */
